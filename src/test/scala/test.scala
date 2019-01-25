@@ -38,13 +38,13 @@
 //   pq.dequeue()
 //   println(pq)
 
-   def k_most(arr: Array[Int], k: Int): Unit = {
+   def k_least(arr: Array[Int], k: Int): Unit = {
      var pq = collection.mutable.PriorityQueue(0)
      var i: Int = 0
      while (i < arr.length) {
-       if (pq.length < k) {
+       if (pq.length < k ) {
          pq.enqueue(arr(i))
-       } else {
+       } else if ((pq.length >= k) & (pq.max > arr(i))){
          pq.dequeue()
          pq.enqueue(arr(i))
        }
@@ -63,7 +63,7 @@
 
     def main(args: Array[String]): Unit = {
 
-        k_most(Array(1,2,3,4,5), 3)
+        k_least(Array(1,2,3,4,5), 3)
     }
   }
 
