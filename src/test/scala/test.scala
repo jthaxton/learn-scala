@@ -22,6 +22,37 @@
      }
    }
 
+//   var arr = Array(1,2,3,4)
+//
+//   var pq = collection.mutable.PriorityQueue(1,2,3,4,5,6,7,8,9,10)
+//   pq.enqueue(1)
+//   println("after enqueue")
+//   println(pq)
+//   pq.dequeue()
+//   println("after dequeue1")
+//   println(pq)
+//   pq.dequeue()
+//   println("after dequeue2")
+//   println(pq)
+//   pq.dequeue()
+//   pq.dequeue()
+//   println(pq)
+
+   def k_most(arr: Array[Int], k: Int): Unit = {
+     var pq = collection.mutable.PriorityQueue(0)
+     var i: Int = 0
+     while (i < arr.length) {
+       if (pq.length < k) {
+         pq.enqueue(arr(i))
+       } else {
+         pq.dequeue()
+         pq.enqueue(arr(i))
+       }
+       i += 1
+     }
+     println(pq)
+   }
+
    def wloops(): Unit = {
      var i: Int = 0
      while(i < 10) {
@@ -31,12 +62,8 @@
    }
 
     def main(args: Array[String]): Unit = {
-      val str = new String ("hello")
-      name("Joe")
-      hungry(true)
-      happy(10)
-      loops()
-      wloops()
+
+        k_most(Array(1,2,3,4,5), 3)
     }
   }
 
